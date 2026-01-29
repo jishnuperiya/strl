@@ -1,4 +1,4 @@
-# STRL — Sensor Truth Replay Lab
+# STRL | Sensor Truth Replay Lab
 
 STRL is a minimal, deterministic dataflow framework for replaying recorded multi-sensor data and running controlled experiments on perception pipelines.
 
