@@ -56,7 +56,7 @@ set_target_properties(sentinex-lib PROPERTIES OUTPUT_NAME sentinex)
 #*****************************************************************************
 
 add_executable(sentinex
-  src/main.cpp )
+  src/main.cpp)
 
 target_link_libraries(sentinex
   sentinex-lib)
@@ -64,7 +64,8 @@ target_link_libraries(sentinex
   #*****************************************************************************
 
 add_executable(sentinex-test
-  test/main.cpp
+  test/main.cpp 
+  test/test_vehicle_state.cpp)
 
 
 if(TARGET rapidcheck)
