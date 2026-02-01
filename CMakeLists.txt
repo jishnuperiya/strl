@@ -4,7 +4,7 @@
 #**  Version : $Header:$
 #**
 #**
-#**  Purpose : CMake build script for the harmony project.
+#**  Purpose : CMake build script for the sentinex project.
 #**
 #**
 #**  See Also: https://cmake.org/cmake/help/latest/
@@ -21,9 +21,9 @@
 
 cmake_minimum_required(VERSION 3.20.2)
 
-project(harmony
+project(sentinex
   VERSION       0.1.0.1
-  HOMEPAGE_URL  "https://github.com/jishnuperiya/repo-no-name")
+  HOMEPAGE_URL  "https://github.com/jishnuperiya/sentinex")
 
 #*****************************************************************************
 
@@ -43,35 +43,28 @@ add_compile_options(-Wall)
 
 #*****************************************************************************
 
-add_library(harmony-lib STATIC
+add_library(sentinex-lib STATIC
   src/main.cpp
   )
 
-target_link_libraries(harmony-lib)
+target_link_libraries(sentinex-lib)
 
-target_include_directories(harmony-lib PUBLIC src)
+target_include_directories(sentinex-lib PUBLIC src)
 
-set_target_properties(harmony-lib PROPERTIES OUTPUT_NAME harmony)
+set_target_properties(sentinex-lib PROPERTIES OUTPUT_NAME sentinex)
 
 #*****************************************************************************
 
-add_executable(harmony
+add_executable(sentinex
   src/main.cpp )
 
-target_link_libraries(harmony
-  harmony-lib)
+target_link_libraries(sentinex
+  sentinex-lib)
 
   #*****************************************************************************
 
-add_executable(harmony-test
+add_executable(sentinex-test
   test/main.cpp
-  test/test_pitch.cpp
-  test/test_frequency.cpp
-  test/test_note.cpp
-  test/test_chord.cpp
-  test/test_progression.cpp
-  test/test_voicing.cpp
-  test/test_note_set.cpp)
 
 
 if(TARGET rapidcheck)
@@ -83,14 +76,14 @@ if(TARGET rapidcheck)
 endif()
 
 
-target_link_libraries(harmony-test
-  harmony-lib
+target_link_libraries(sentinex-test
+  sentinex-lib
   rapidcheck
   doctest::doctest)
 
 #*****************************************************************************
 
-add_test(NAME harmony.example COMMAND harmony-test)
+add_test(NAME sentinex.example COMMAND sentinex-test)
 
 #*****************************************************************************
 
