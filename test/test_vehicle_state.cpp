@@ -19,13 +19,13 @@
 
 //****************************************************************************
 
-using namespace sentinex;
+using sentinex::estimation::VehicleState;
 
 //****************************************************************************
 
 TEST_CASE("VehicleState: default initialization")
 {
-  estimation::VehicleState state;
+  VehicleState state;
   CHECK(state.x   == 0.0);
   CHECK(state.y   == 0.0);
   CHECK(state.psi == 0.0);
