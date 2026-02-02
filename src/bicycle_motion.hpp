@@ -1,4 +1,4 @@
-//******** Copyright   2026 Jishnu Periya, Jonathon Bell. All rights reserved.
+﻿//******** Copyright   2026 Jishnu Periya, Jonathon Bell. All rights reserved.
 //*
 //*
 //*  Version : $Header:$
@@ -12,7 +12,10 @@
 #pragma once
 //****************************************************************************
 
+#include <cassert>                    // for assert
+#include <cmath>                      // for std::atan, std::tan, std::cos, std::sin, std::isfinite
 #include "vehicle_state.hpp"          // for sentinex::estimation::VehicleState
+#include "motion_command.hpp"         // for sentinex::modell::MotionCommands
 
 //****************************************************************************
 namespace sentinex::model{
@@ -62,16 +65,22 @@ namespace sentinex::model{
   * @param velocity_cmd         Longitudinal velocity command [m/s]
   * @param steering_angle_cmd   Front wheel steering angle [rad]
   */
-    void update(double dt, double velocity_cmd, double steering_angle_cmd)
+    void update(double dt, const MotionCommand& cmd)
     {
+      assert(dt > 0.0 && "Time step must be positive");
+      assert(std::isfinite(cmd.velocity_cmd) && "Velocity must be finite");
+      assert(std::isfinite(cmd.steering_cmd) && "Steering angle must be finite");
 
        // Slip angle at the vehicle center of mass
-       const double beta = std::atan(0.5 * std::tan(steering_angle_cmd)); 
+       const double beta = std::atan(0.5 * std::tan(cmd.steering_cmd)); 
        
-       state_.x += velocity_cmd * std::cos(state_.psi + beta) * dt;
-       state_.y += velocity_cmd * std::sin(state_.psi + beta) * dt;
-       state_.psi += (velocity_cmd / wheelbase_) * std::sin(beta) * dt;
-       state_.v = velocity_cmd;
+       state_.x += cmd.velocity_cmd * std::cos(state_.psi + beta) * dt;
+       state_.y += cmd.velocity_cmd * std::sin(state_.psi + beta) * dt;
+       state_.psi += (cmd.velocity_cmd / wheelbase_) * std::sin(beta) * dt;
+       
+       state_.psi = normalizeAngle(state_.psi);
+
+       state_.v = cmd.velocity_cmd;
     }
     /**
      * Get the current vehicle state.
@@ -84,6 +93,17 @@ namespace sentinex::model{
     }
 
   private:
+    /**
+    * Normalize angle to [-π, π]
+    *
+    * @param angle Input angle [rad]
+    * @return Normalized angle [rad]
+    */
+    static double normalizeAngle(double angle)
+    {
+      return std::atan2(std::sin(angle), std::cos(angle));
+    }
+
     estimation::VehicleState state_;
     double wheelbase_;
   };
