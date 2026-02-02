@@ -65,7 +65,8 @@ target_link_libraries(sentinex
 add_executable(sentinex-test
   test/main.cpp 
   test/test_vehicle_state.cpp 
-  test/test_bicycle_motion.cpp)
+  test/test_bicycle_motion.cpp
+  test/test_motion_commands.cpp)
 
 
 if(TARGET rapidcheck)
