@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vehiclestate_0',['VehicleState',['../structsentinex_1_1estimation_1_1_vehicle_state.html',1,'sentinex::estimation']]]
+  ['bicyclemotionmodel_0',['BicycleMotionModel',['../classsentinex_1_1model_1_1_bicycle_motion_model.html',1,'sentinex::model']]]
 ];

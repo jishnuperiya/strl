@@ -101,45 +101,12 @@ $(function(){initNavTree('index.html','',''); });
 <div class="contents">
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="intro_sec"></a>
 Overview</h1>
-<p><b>Sentinex</b> is a modern C++20 sensor fusion and simulation suite designed for robust vehicle state estimation and system-level validation.</p>
-<p>The project focuses on deterministic, testable, and extensible estimation pipelines suitable for automotive, robotics, and simulation-driven development workflows.</p>
 <h1 class="doxsection"><a class="anchor" id="goals_sec"></a>
 Design Goals</h1>
-<ul>
-<li>Strongly typed state and measurement representations</li>
-<li>Clear separation between models, filters, and data sources</li>
-<li>Deterministic simulation and replay of sensor data</li>
-<li>Emphasis on correctness, observability, and numerical stability</li>
-<li>Modern C++20 design with minimal runtime overhead</li>
-</ul>
 <h1 class="doxsection"><a class="anchor" id="features_sec"></a>
 Core Features</h1>
-<ul>
-<li>Vehicle state estimation using Kalman filtering techniques (linear KF, EKF, extensible to UKF)</li>
-<li>Explicit process and measurement models</li>
-<li>Sensor abstraction for simulation and replay</li>
-<li>System-level validation utilities</li>
-<li>Well-documented APIs using Doxygen</li>
-</ul>
 <h1 class="doxsection"><a class="anchor" id="architecture_sec"></a>
 Architecture</h1>
-<p>Sentinex is structured around a small set of orthogonal components:</p>
-<ul>
-<li><b>State representations</b> (e.g., VehicleState)</li>
-<li><b>Dynamic models</b> (process and motion models)</li>
-<li><b>Measurement models</b> (sensor-specific observation models)</li>
-<li><b>Filters</b> (Kalman Filter variants)</li>
-<li><b>Simulation and validation tools</b></li>
-</ul>
-<p>Headers define the public API and semantic contracts, while implementation files focus on numerical methods and algorithms.</p>
-<h1 class="doxsection"><a class="anchor" id="standards_sec"></a>
-Coding Standards</h1>
-<ul>
-<li>C++20</li>
-<li>Header-only documentation using Doxygen</li>
-<li>No hidden ownership or implicit state</li>
-<li>Explicit units and coordinate frame conventions</li>
-</ul>
 <h1 class="doxsection"><a class="anchor" id="audience_sec"></a>
 Intended Audience</h1>
 <p>Sentinex is intended for:</p><ul>

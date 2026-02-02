@@ -1,0 +1,110 @@
+\doxysection{sentinex::\+model::\+Bicycle\+Motion\+Model Class Reference}
+\hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model}{}\label{classsentinex_1_1model_1_1_bicycle_motion_model}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+
+
+{\ttfamily \+\#include $<$bicycle\+\_\+motion\+\_\+model.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_aaff6666193d987ae5ca505fd031b8f87}{Bicycle\+Motion\+Model}} (double wheelbase=4.\+0)
+\item 
+void \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_acd73b12bae50616e892fbe4c6a565777}{reset}} (const \doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::\+\+Vehicle\+State}} \&state)
+\item 
+void \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_aa7ea3c03919fbd258abefed42d36afe8}{update}} (double dt, double velocity, double steering\+\_\+angle)
+\item 
+\doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::\+\+Vehicle\+State}} \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a4ba91d1290376e67473af74707fd12e3}{get\+State}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::\+\+Vehicle\+State}} \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\+\_\+}}
+\item 
+double \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_af0698c6dd30e867f8e98fa19378410b8}{wheelbase\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_aaff6666193d987ae5ca505fd031b8f87}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}!BicycleMotionModel@{BicycleMotionModel}}
+\index{BicycleMotionModel@{BicycleMotionModel}!sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+\doxysubsubsection{\texorpdfstring{BicycleMotionModel()}{BicycleMotionModel()}}
+{\footnotesize\ttfamily \label{classsentinex_1_1model_1_1_bicycle_motion_model_aaff6666193d987ae5ca505fd031b8f87} 
+sentinex::\+model::\+\+Bicycle\+Motion\+Model::\+\+Bicycle\+Motion\+Model (\begin{DoxyParamCaption}\item[{double}]{wheelbase}{ = {\ttfamily 4.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Construct a bicycle model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em wheel\+\_\+base} & Distance between front and rear axle \+[m]\+ \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_a4ba91d1290376e67473af74707fd12e3}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}!getState@{getState}}
+\index{getState@{getState}!sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \label{classsentinex_1_1model_1_1_bicycle_motion_model_a4ba91d1290376e67473af74707fd12e3} 
+\doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::\+\+Vehicle\+State}} sentinex::\+model::\+\+Bicycle\+Motion\+Model::\+get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the current vehicle state.
+
+\begin{DoxyReturn}{Returns}
+Current vehicle state 
+\end{DoxyReturn}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_acd73b12bae50616e892fbe4c6a565777}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}!reset@{reset}}
+\index{reset@{reset}!sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classsentinex_1_1model_1_1_bicycle_motion_model_acd73b12bae50616e892fbe4c6a565777} 
+void sentinex::\+model::\+\+Bicycle\+Motion\+Model::\+reset (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::\+\+Vehicle\+State}} \&}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reset the vehicle state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & New vehicle state \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_aa7ea3c03919fbd258abefed42d36afe8}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}!update@{update}}
+\index{update@{update}!sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classsentinex_1_1model_1_1_bicycle_motion_model_aa7ea3c03919fbd258abefed42d36afe8} 
+void sentinex::\+model::\+\+Bicycle\+Motion\+Model::\+update (\begin{DoxyParamCaption}\item[{double}]{dt}{, }\item[{double}]{velocity}{, }\item[{double}]{steering\+\_\+angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Propagate the state forward in time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time step \+[s]\+ \\
+\hline
+{\em velocity\+\_\+cmd} & Longitudinal velocity command \+[m/\+s]\+ \\
+\hline
+{\em steering\+\_\+cmd} & Steering angle \+[rad]\+ \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}!state\_@{state\_}}
+\index{state\_@{state\_}!sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+\doxysubsubsection{\texorpdfstring{state\_}{state\_}}
+{\footnotesize\ttfamily \label{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c} 
+\doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::\+\+Vehicle\+State}} sentinex::\+model::\+\+Bicycle\+Motion\+Model::\+state\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classsentinex_1_1model_1_1_bicycle_motion_model_af0698c6dd30e867f8e98fa19378410b8}\index{sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}!wheelbase\_@{wheelbase\_}}
+\index{wheelbase\_@{wheelbase\_}!sentinex::model::BicycleMotionModel@{sentinex::model::BicycleMotionModel}}
+\doxysubsubsection{\texorpdfstring{wheelbase\_}{wheelbase\_}}
+{\footnotesize\ttfamily \label{classsentinex_1_1model_1_1_bicycle_motion_model_af0698c6dd30e867f8e98fa19378410b8} 
+double sentinex::\+model::\+\+Bicycle\+Motion\+Model::\+wheelbase\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+src/\+\doxymbox{\hyperlink{bicycle__motion__model_8hpp}{bicycle\+\_\+motion\+\_\+model.\+hpp}}\end{DoxyCompactItemize}

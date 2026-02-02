@@ -1,0 +1,57 @@
+\doxysection{bicycle\+\_\+motion\+\_\+model.\+hpp}
+\hypertarget{bicycle__motion__model_8hpp_source}{}\label{bicycle__motion__model_8hpp_source}\index{src/bicycle\_motion\_model.hpp@{src/bicycle\_motion\_model.hpp}}
+\doxymbox{\hyperlink{bicycle__motion__model_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//********\ Copyright\ {\ucr}\ 2026\ Jishnu\ Periya,\ Jonathon\ Bell.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//*}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//*\ \ Version\ :\ \$Header:\$}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//*}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//*}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//*\ \ Purpose\ :\ Implements\ a\ simplified\ kinematic\ bicycle\ model\ used\ to\ propagate}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//*\ \ \ \ \ \ \ \ \ \ \ \ a\ vehicle\ state\ forward\ in\ time\ based\ on\ steering\ and\ velocity\ commands.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//*}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//*}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//****************************************************************************}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//****************************************************************************}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{vehicle__state_8hpp}{vehicle\_state.hpp}}"{}}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ sentinex::estimation::VehicleState}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//****************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacesentinex_1_1model}{sentinex::model}}\{}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_aaff6666193d987ae5ca505fd031b8f87}{BicycleMotionModel}}}
+\DoxyCodeLine{00022\ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_aaff6666193d987ae5ca505fd031b8f87}{BicycleMotionModel}}(\textcolor{keywordtype}{double}\ wheelbase\ =\ 4.0)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ :\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_af0698c6dd30e867f8e98fa19378410b8}{wheelbase\_}}(wheelbase)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_acd73b12bae50616e892fbe4c6a565777}{reset}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::VehicleState}}\&\ state)}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}\ =\ state;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_aa7ea3c03919fbd258abefed42d36afe8}{update}}(\textcolor{keywordtype}{double}\ dt,\ \textcolor{keywordtype}{double}\ velocity,\ \textcolor{keywordtype}{double}\ steering\_angle)}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ beta\ =\ std::atan(0.5\ *\ std::tan(steering\_angle));\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}.x\ +=\ velocity\ *\ std::cos(\doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}.psi\ +\ beta)\ *\ dt;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}.y\ +=\ velocity\ *\ std::sin(\doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}.psi\ +\ beta)\ *\ dt;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}.psi\ +=\ (velocity\ /\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_af0698c6dd30e867f8e98fa19378410b8}{wheelbase\_}})\ *\ std::sin(beta)\ *\ dt;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}}.v\ =\ velocity;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::VehicleState}}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a4ba91d1290376e67473af74707fd12e3}{getState}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \doxymbox{\hyperlink{structsentinex_1_1estimation_1_1_vehicle_state}{estimation::VehicleState}}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_a788589e88ce3eb6e42b3224be12c5c7c}{state\_}};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsentinex_1_1model_1_1_bicycle_motion_model_af0698c6dd30e867f8e98fa19378410b8}{wheelbase\_}};}
+\DoxyCodeLine{00072\ \ \ \};}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}

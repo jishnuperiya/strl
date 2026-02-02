@@ -29,7 +29,6 @@ var NAVTREE =
     [ "Design Goals", "index.html#goals_sec", null ],
     [ "Core Features", "index.html#features_sec", null ],
     [ "Architecture", "index.html#architecture_sec", null ],
-    [ "Coding Standards", "index.html#standards_sec", null ],
     [ "Intended Audience", "index.html#audience_sec", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
@@ -39,6 +38,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
