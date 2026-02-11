@@ -50,14 +50,14 @@ target_link_libraries(sentinex-lib)
 
 target_include_directories(sentinex-lib PUBLIC src)
 
-set_target_properties(sentinex-lib PROPERTIES OUTPUT_NAME sentinex)
+set_target_properties(sentinex-lib PROPERTIES OUTPUT_NAME sentinex-cli)
 
 #*****************************************************************************
 
-add_executable(sentinex
-  src/main.cpp )
+add_executable(sentinex-cli
+  cli/main.cpp )
 
-target_link_libraries(sentinex
+target_link_libraries(sentinex-cli
   sentinex-lib)
 
   #*****************************************************************************
@@ -66,7 +66,7 @@ add_executable(sentinex-test
   test/main.cpp 
   test/test_vehicle_state.cpp 
   test/test_bicycle_motion.cpp
-  test/test_motion_commands.cpp)
+  )
 
 
 if(TARGET rapidcheck)

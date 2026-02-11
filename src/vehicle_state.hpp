@@ -44,8 +44,16 @@ namespace sentinex::estimation
     double psi = 0.0;
 
     /** Longitudinal velocity [m/s] */
-    double v = 0.0;
+    double v = 0.0; // quaternion class -> unit q repreenting curr dir. 
+
+    auto operator<=>(const VehicleState&) const = default;
   };
+
+  /*
+  
+  quaternions - avoid gimbal lock
+
+  */
 
   //****************************************************************************
 } // namespace sentinex::estimation

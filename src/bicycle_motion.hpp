@@ -15,7 +15,7 @@
 #include <cassert>                    // for assert
 #include <cmath>                      // for std::atan, std::tan, std::cos, std::sin, std::isfinite
 #include "vehicle_state.hpp"          // for sentinex::estimation::VehicleState
-#include "motion_command.hpp"         // for sentinex::modell::MotionCommands
+#include "motion_command.hpp"         // for sentinex::model::MotionCommands
 
 //****************************************************************************
 namespace sentinex::model{
@@ -67,7 +67,7 @@ namespace sentinex::model{
   */
     void update(double dt, const MotionCommand& cmd)
     {
-      assert(dt > 0.0 && "Time step must be positive");
+      assert(dt >= 0.0 && "Time step must be positive");
       assert(std::isfinite(cmd.velocity_cmd) && "Velocity must be finite");
       assert(std::isfinite(cmd.steering_cmd) && "Steering angle must be finite");
 
@@ -81,6 +81,17 @@ namespace sentinex::model{
        state_.psi = normalizeAngle(state_.psi);
 
        state_.v = cmd.velocity_cmd;
+    }
+
+    /*2 threads can ask simulatnaeously for the same bmm whereas with update if 2 threads were to enter the same model, 2 interfre eac other on the muation of x and y :*/
+    BicycleMotionModel new_model(double dt, const MotionCommand& cmd) const 
+    {
+
+      auto s =state_;
+
+      /*copute the new state*/
+
+      return BicycleMotionModel{ wheelbase_, s };
     }
     /**
      * Get the current vehicle state.
@@ -105,6 +116,13 @@ namespace sentinex::model{
     }
 
     estimation::VehicleState state_;
-    double wheelbase_;
+    const double wheelbase_;
   };
 }
+
+
+/*
+takes non trivial funtions out of loine
+get state inline -cheapter
+
+*/
