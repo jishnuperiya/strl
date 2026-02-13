@@ -11,6 +11,10 @@
 #pragma once
 //****************************************************************************
 
+#include <compare>                     // for operator<=>
+
+//****************************************************************************
+
 namespace sentinex::estimation
 {
   //****************************************************************************
@@ -32,7 +36,7 @@ namespace sentinex::estimation
    *  - psi  : radians
    *  - v    : meters per second
    */
-  struct VehicleState
+  struct vehicle_state
   {
     /** Position along world X-axis [m] */
     double x = 0.0;
@@ -46,11 +50,12 @@ namespace sentinex::estimation
     /** Longitudinal velocity [m/s] */
     double v = 0.0; // quaternion class -> unit q repreenting curr dir. 
 
-    auto operator<=>(const VehicleState&) const = default;
+    auto operator<=>(const vehicle_state&) const = default;
   };
 
   /*
-  
+  todo:
+
   quaternions - avoid gimbal lock
 
   */

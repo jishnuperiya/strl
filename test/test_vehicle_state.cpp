@@ -19,13 +19,13 @@
 
 //****************************************************************************
 
-using sentinex::estimation::VehicleState;
+using sentinex::estimation::vehicle_state;
 
 //****************************************************************************
 
 TEST_CASE("VehicleState: default initialization")
 {
-  VehicleState state;
+  vehicle_state state;
   CHECK(state.x   == 0.0);
   CHECK(state.y   == 0.0);
   CHECK(state.psi == 0.0);
